@@ -53,6 +53,7 @@ let main _ =
         searchByKeywordButton; searchByDefinitionButton; saveButton; loadButton
     |])
 
+    // Handling the update button click event
     updateButton.Click.Add(fun _ -> 
         try
             dictionary.UpdateWord(wordTextBox.Text, definitionTextBox.Text)
@@ -60,7 +61,8 @@ let main _ =
         with ex -> 
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error) |> ignore
     )
-    
+
+    // Handling the add button click event
     addButton.Click.Add(fun _ -> 
         try
             dictionary.AddWord(wordTextBox.Text, definitionTextBox.Text)
@@ -71,6 +73,7 @@ let main _ =
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error) |> ignore
     )
 
+    // Handling the save button click event
     saveButton.Click.Add(fun _ -> 
         try
             if dictionary.SaveToFile("dictionary.json") then
@@ -83,7 +86,7 @@ let main _ =
         with ex -> 
             MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error) |> ignore
     )
-    
+
     // Start the form
     Application.Run(form)
     0
