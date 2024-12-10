@@ -52,9 +52,6 @@ let main _ =
         resultListBox; addButton; updateButton; deleteButton; 
         searchByKeywordButton; searchByDefinitionButton; saveButton; loadButton
     |])
-    // Start the form
-Application.Run(form)
-
-0
+    
 
     
