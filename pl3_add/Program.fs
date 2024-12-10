@@ -1,4 +1,4 @@
-﻿open System
+open System
 open System.Drawing
 open System.Windows.Forms
 open System.IO
@@ -60,6 +60,7 @@ let main _ =
         with ex -> 
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error) |> ignore
     )
+    
     addButton.Click.Add(fun _ -> 
         try
             dictionary.AddWord(wordTextBox.Text, definitionTextBox.Text)
@@ -69,6 +70,7 @@ let main _ =
         with ex -> 
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error) |> ignore
     )
+
     saveButton.Click.Add(fun _ -> 
         try
             if dictionary.SaveToFile("dictionary.json") then
@@ -81,6 +83,7 @@ let main _ =
         with ex -> 
             MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error) |> ignore
     )
-     // Start the form
+    
+    // Start the form
     Application.Run(form)
     0
